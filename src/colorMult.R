@@ -1,4 +1,5 @@
 col.mult <- function(col1 = 0x000000, col2 = "gray50"){
+  #' multiplies two colors
   # Mickey Warner: 
   # https://github.com/mickwar/r-sandbox/blob/master/mcmc/bayes_functions.R
   # returns the x-value in dens that is closest
@@ -15,10 +16,10 @@ col.mult <- function(col1 = 0x000000, col2 = "gray50"){
 }
 
 int2rgb = function(x){
-# int2rgb()
-# convert an integer between 0 and 16777215 = 256^3 - 1,
-# or between 0 and 0xFFFFFF
-# this function is depended upon by col.mult
+  #' convert an integer between 0 and 16777215 = 256^3 - 1,
+  #' or between 0 and 0xFFFFFF
+  #' this function is depended upon by col.mult
+
   # Mickey Warner: 
   # https://github.com/mickwar/r-sandbox/blob/master/mcmc/bayes_functions.R
   # returns the x-value in dens that is closest
