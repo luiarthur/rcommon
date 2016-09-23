@@ -2,7 +2,7 @@
 \alias{color.btwn}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+yes
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
