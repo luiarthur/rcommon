@@ -1,5 +1,6 @@
 plotInPlot <- function(minor.plot,coords="topright",scale=1/3,stay=F,bg.col=rgb(0,0,0,0)) {
-  #' stay: acts like 'add' in the 'plot' function. The default is FALSE.
+  #' make a plot in a plot
+  #' @param stay: acts like 'add' in the 'plot' function. The default is FALSE.
   #' @param coords = x1,y1,x2,y2
   #' @param minor.plot is a function with no parameters that plots the smaller plot
 
