@@ -1,7 +1,23 @@
 plotInPlot <- function(minor.plot,coords="topright",scale=1/3,stay=F,bg.col=rgb(0,0,0,0)) {
-  # stay: acts like 'add' in the 'plot' function. The default is FALSE.
-  # coords = x1,y1,x2,y2
-  # minor.plot is a function with no parameters that plots the smaller plot
+  #' stay: acts like 'add' in the 'plot' function. The default is FALSE.
+  #' @param coords = x1,y1,x2,y2
+  #' @param minor.plot is a function with no parameters that plots the smaller plot
+
+  #' @examples
+  #' x <- rnorm(10000)
+  #' plot(density(x),ylim=c(0,.5))
+  #' 
+  #' minor <- function() {
+  #'   plot(x,type="l",main="Trace",cex.main=.8,bty="n",cex.axis=.5) 
+  #' }
+  #' 
+  #' plotInPlot(minor,c(1,4,.4,.5))
+  #' plotInPlot(minor,"topright")
+  #' plotInPlot(minor,"bottomright")
+  #' plotInPlot(minor,"bottomleft")
+  #' plotInPlot(minor,"topleft")
+  #' @export
+
   mar <- x1 <- x2 <- y1 <- y2 <- NULL
   rx1 <- rx2 <- ry1 <- ry2 <- NULL
   s <- par("usr")
@@ -64,16 +80,3 @@ plotInPlot <- function(minor.plot,coords="topright",scale=1/3,stay=F,bg.col=rgb(
   par(mfg=mfg)
 }
 
-# Usage:
-#x <- rnorm(10000)
-#plot(density(x),ylim=c(0,.5))
-#
-#minor <- function() {
-#  plot(x,type="l",main="Trace",cex.main=.8,bty="n",cex.axis=.5) 
-#}
-#
-#plotInPlot(minor,c(1,4,.4,.5))
-#plotInPlot(minor,"topright")
-#plotInPlot(minor,"bottomright")
-#plotInPlot(minor,"bottomleft")
-#plotInPlot(minor,"topleft")

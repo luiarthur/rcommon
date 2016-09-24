@@ -1,9 +1,5 @@
 col.mult <- function(col1 = 0x000000, col2 = "gray50"){
   #' col.mult
-  #' @description
-  #' multiply two colors
-  #' @param col1    the major color
-  #' @param col2    the color to mix with (usually grey)
   #' @export 
 
   int2rgb <- function(x){

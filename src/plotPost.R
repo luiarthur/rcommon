@@ -4,6 +4,13 @@ source("colorUnderCurve.R")
 source("mypairs.R")
 
 plotPosts <- function(M,cnames=colnames(M),...) {
+  #' plot posteriors
+  #' @examples
+  #' M <- matrix(rnorm(1000),ncol=4)
+  #' colnames(M) <- 1:4
+  #' plotPosts(M)
+  #' @export
+
   customDiag <- function(i,X) 
     plotPost(X[,i],main=cnames[i],float=T,stats=F,yaxt="n",...)
 
@@ -24,12 +31,12 @@ plotPosts <- function(M,cnames=colnames(M),...) {
   }
 }
 
-#M <- matrix(rnorm(1000),ncol=4)
-#colnames(M) <- 1:4
-#plotPosts(M)
 
 plotPost <- function(x,hpd=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.a=1,
                      col.area="cornflowerblue",float=FALSE,...) {
+  #' plot posterior
+  #' @export
+
   par.orig <- par(no.readonly=TRUE)
   maj.col <- col.area
   hpd.col <- col.mult(maj.col)
@@ -56,6 +63,8 @@ plotPost <- function(x,hpd=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.a=1,
 }
 
 add.errbar <- function(ci,transpose=FALSE,x=NULL,...) {
+  #' Add error bar
+  #' @export
   if (any(is.null(x))) x <- 1:nrow(ci)
   if (!transpose)
     segments(x,ci[,1],x,ci[,2],...)
@@ -64,12 +73,18 @@ add.errbar <- function(ci,transpose=FALSE,x=NULL,...) {
 }
 
 plot.contour <- function(M,...) {
+  #' plot contour
+  #' @export
+
   library(MASS) # filled.contour, kde2d
   J <- kde2d(M[,1],M[,2])
   contour(J,bty="n",fg="grey",...)
 }
 
 get.hpd <- function(x,a=.05,len=1e3) {
+  #' get the HPD
+  #' @export
+
   V <- matrix(seq(0,a,length=len))
   quants <- t(apply(V,1,function(v) quantile(x,c(v,v+1-a))))
   diff <- quants[,2]-quants[,1]
@@ -79,10 +94,9 @@ get.hpd <- function(x,a=.05,len=1e3) {
 }
 
 bound <- function(x, dens, return.x=TRUE){
-  # Mickey Warner: 
-  # https://github.com/mickwar/r-sandbox/blob/master/mcmc/bayes_functions.R
-  # returns the x-value in dens that is closest
-  # to the given x
+  #' returns the x-value in dens that is closest to the given x
+  #' @export
+  #' Mickey Warner
   if (return.x)
     dens$x[which.min(abs(dens$x-x))]
   else 

@@ -1,4 +1,12 @@
 my.pairs <- function(M,digits=3,customDiag=NULL,customLower=NULL,customUpper=NULL) {
+
+  #' my paris function (prettier)
+  #' @examples
+  #' X <- matrix(rnorm(100),ncol=4)
+  #' colnames(X) <- c("I","II","III","IV")
+  #' my.pairs(X)
+  #' @export
+
   par.orig <- par(no.readonly=TRUE)
 
   cnames <- colnames(M)
@@ -50,9 +58,5 @@ my.pairs <- function(M,digits=3,customDiag=NULL,customLower=NULL,customUpper=NUL
   #par(mfrow=c(1,1),mar=mar.orig)
   par(par.orig)
 }
-
-#X <- matrix(rnorm(100),ncol=4)
-#colnames(X) <- c("I","II","III","IV")
-#my.pairs(X)
 
 

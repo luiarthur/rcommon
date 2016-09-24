@@ -1,4 +1,7 @@
 my.color <- function(dat,from,to,col.den="black",col.area="red",...) {
+  #' color under curve
+  #' @export
+
   if (is(dat)[1] == "function") {
     color.fn(dat,from,to,col.area)
   } else if (is(dat)[1] == "density") {
@@ -10,8 +13,10 @@ my.color <- function(dat,from,to,col.den="black",col.area="red",...) {
 
 
 color.den <- function(den,from,to,col.den="white",col.area="red",add=F,...) {
-  # Colors area under a density within an interval
-  # den has to be a density object
+  #' color area under a density within an interval
+  #' den has to be a density object
+  #' @export
+
   if (add) {
     lines(den,col=col.den,...)
   } else {
@@ -23,6 +28,9 @@ color.den <- function(den,from,to,col.den="white",col.area="red",add=F,...) {
 }
 
 color.fn <- function(f,from,to,col.area="red") {
+  #' color area under a function within an interval
+  #' @export
+
   x <- seq(from,to,by=(to-from)/1e6)
   polygon(c(from,x,to),
           c(0,f(x),0),col=col.area,border=F)
@@ -30,14 +38,18 @@ color.fn <- function(f,from,to,col.area="red") {
 
 
 color.emp <- function(M,from,to,col.area="red") {
+  #' color area under a curve for a sample
+  #' @export
+
   x <- M[,1]
   y <- M[,2]
   polygon(c(from,x[x>=from & x<= to],to),
           c(0,y[x>=from & x<=to],0),col=col.area,border=F)
 }
 
-# Color area between ylo and yhi
 color.btwn <- function(x,ylo,yhi,from,to,col.area="grey") {
+  #' Color area between ylo and yhi
+  #' @export
   x <- c(x,rev(x))
   y <- c(yhi,rev(ylo))
 
