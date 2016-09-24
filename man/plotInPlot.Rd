@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotInPlot.R
 \name{plotInPlot}
 \alias{plotInPlot}
-\title{stay: acts like 'add' in the 'plot' function. The default is FALSE.}
+\title{make a plot in a plot}
 \usage{
 plotInPlot(minor.plot, coords = "topright", scale = 1/3, stay = F,
   bg.col = rgb(0, 0, 0, 0))
@@ -11,9 +11,11 @@ plotInPlot(minor.plot, coords = "topright", scale = 1/3, stay = F,
 \item{minor.plot}{is a function with no parameters that plots the smaller plot}
 
 \item{coords}{= x1,y1,x2,y2}
+
+\item{stay:}{acts like 'add' in the 'plot' function. The default is FALSE.}
 }
 \description{
-stay: acts like 'add' in the 'plot' function. The default is FALSE.
+make a plot in a plot
 }
 \examples{
 x <- rnorm(10000)
