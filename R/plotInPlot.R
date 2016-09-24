@@ -80,4 +80,3 @@ plotInPlot <- function(minor.plot,coords="topright",scale=1/3,stay=F,bg.col=rgb(
 
   par(mfg=mfg)
 }
-

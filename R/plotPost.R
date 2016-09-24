@@ -1,7 +1,7 @@
-source("plotInPlot.R")
-source("colorMult.R")
-source("colorUnderCurve.R")
-source("mypairs.R")
+#source("plotInPlot.R")
+#source("colorMult.R")
+#source("colorUnderCurve.R")
+#source("mypairs.R")
 
 plotPosts <- function(M,cnames=colnames(M),...) {
   #' plot posteriors

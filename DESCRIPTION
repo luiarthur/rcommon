@@ -2,7 +2,7 @@ Package: rcommon
 Title: My Stuff
 Version: 0.1
 Authors@R: person("Arthur", "Lui", email = "luiarthur@gmail.com", role = c("aut", "cre"))
-Description: Contains various MCMC-related functions, many related to plotting
+Description: My stuff for plotting
 Depends:
     R (>= 3.3.1)
 License: GNU GPLv2
