@@ -6,8 +6,8 @@ R functions that I use commonly
 ~~~ R
 # install.packages("devtools")
 devtools::install_github("luiarthur/rcommon")
-library(rcommon)
 
+library(rcommon)
 X <- matrix(rnorm(5*100),ncol=5)
 my.pairs(X)
 ~~~

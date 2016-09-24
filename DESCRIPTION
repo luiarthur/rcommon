@@ -1,10 +1,10 @@
 Package: rcommon
-Type: Package
-Title: my stuff
-Version: 1.0
-Date: 2016-09-24
-Author: Arthur Lui
-Maintainer: Arthur Lui <luiarhtur@gmail.com>
-Description: Yes
-License: MIT
+Title: My Stuff
+Version: 0.1
+Authors@R: person("Arthur", "Lui", email = "luiarthur@gmail.com", role = c("aut", "cre"))
+Description: Contains various MCMC-related functions, many related to plotting
+Depends:
+    R (>= 3.3.1)
+License: GNU GPLv2
+LazyData: true
 RoxygenNote: 5.0.1.9000
