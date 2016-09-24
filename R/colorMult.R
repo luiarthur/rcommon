@@ -3,6 +3,7 @@ col.mult <- function(col1 = 0x000000, col2 = "gray50"){
   #' @export 
 
   int2rgb <- function(x){
+    # by Mickey Warner
     hex <- as.character(as.hexmode(x))
     hex <- paste0("#", paste0(rep("0", 6-nchar(hex)), collapse=""), hex)
     col2rgb(hex)
