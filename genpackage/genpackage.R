@@ -1,3 +1,3 @@
 source("../src/plotPost.R",chdir=TRUE)
 
-package.skeleton(name="rcommon")
+package.skeleton(name="rcommon2")
