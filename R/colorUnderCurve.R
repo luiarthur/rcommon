@@ -77,4 +77,3 @@ color.btwn <- function(x,ylo,yhi,from,to,col.area="grey") {
 #  y <- dnorm(x)
 #  plot(x,y,type='l')
 #  color.emp(cbind(x,y),-2,5)
-

@@ -95,8 +95,8 @@ get.hpd <- function(x,a=.05,len=1e3) {
 
 bound <- function(x, dens, return.x=TRUE){
   #' returns the x-value in dens that is closest to the given x
+  #' by Mickey Warner
   #' @export
-  #' Mickey Warner
   if (return.x)
     dens$x[which.min(abs(dens$x-x))]
   else 
