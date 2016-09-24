@@ -26,3 +26,6 @@ colnames(Y) <- 1:5
 plotPosts(Y,dig=2,cex.a=1)
 plotPosts(rnorm(1000))
 plotPosts(Y[,1:2],dig=2,cex.a=1)
+
+### GENERATE PACKAGE IF ALL TESTS PASS
+roxygen2::roxygenise()
