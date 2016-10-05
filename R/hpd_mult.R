@@ -1,36 +1,36 @@
-#' hpd_mult (by Mickey Warner)
-#'
-#' @description
-#' Compute the highest density posterior region from a (possibly multi-modal)
-#' sample of points.
-#'
-#' @param x         vector of samples from some distribution
-#' @param dens      a density object based on x, defaults to density(x)
-#' @param prob      numeric in (0, 1) the probability that the interval should be
-#' @param tol       numeric, smaller means longer compute time, but more accurate
-#'                  results
-#' @param interactive logical, defaults to FALSE. If TRUE, a fun plot is shown
-#'                  and the function's process of choosing the region is displayed.
-#'                  The user hits enter to proceed through.
-#'
-#' @details
-#' Since hpd_mult relies on a density object, it is possible to be returned a
-#' result that is outside the bounds of the data (i.e., an hpd for a beta random
-#' variable that has a left end point below 0).
-#'
-#' A random horizontal line is repeatedly generated and the points along the line
-#' that cross dens$y are calculated. These points make up a proposed hpd region
-#' whose area is computed. Given this area, a new horizontal line is generated
-#' until the area is close to prob (within tol).
-#'
-#' @seealso hpd_uni
-#' @export
-#' @examples
-#' set.seed(1)
-#' x = c(rnorm(100), rnorm(100, 5)
-#' hpd = hpd_mult(x)
-
 hpd_mult = function(x, dens, prob = 0.95, tol, interactive = FALSE){
+  #' hpd_mult (by Mickey Warner)
+  #'
+  #' @description
+  #' Compute the highest density posterior region from a (possibly multi-modal)
+  #' sample of points.
+  #'
+  #' @param x         vector of samples from some distribution
+  #' @param dens      a density object based on x, defaults to density(x)
+  #' @param prob      numeric in (0, 1) the probability that the interval should be
+  #' @param tol       numeric, smaller means longer compute time, but more accurate
+  #'                  results
+  #' @param interactive logical, defaults to FALSE. If TRUE, a fun plot is shown
+  #'                  and the function's process of choosing the region is displayed.
+  #'                  The user hits enter to proceed through.
+  #'
+  #' @details
+  #' Since hpd_mult relies on a density object, it is possible to be returned a
+  #' result that is outside the bounds of the data (i.e., an hpd for a beta random
+  #' variable that has a left end point below 0).
+  #'
+  #' A random horizontal line is repeatedly generated and the points along the line
+  #' that cross dens$y are calculated. These points make up a proposed hpd region
+  #' whose area is computed. Given this area, a new horizontal line is generated
+  #' until the area is close to prob (within tol).
+  #'
+  #' @seealso get.hpd
+  #' @examples
+  #' set.seed(1)
+  #' x = c(rnorm(100), rnorm(100, 5)
+  #' hpd = hpd_mult(x)
+  #' @export
+
     if (missing(dens))
         dens = density(x)
     max.k = max(dens$y)

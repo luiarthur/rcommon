@@ -40,6 +40,6 @@ x = c(rnorm(100), rnorm(100, 5)
 hpd = hpd_mult(x)
 }
 \seealso{
-hpd_uni
+get.hpd
 }
 
