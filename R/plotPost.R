@@ -32,32 +32,32 @@ plotPosts <- function(M,cnames=colnames(M),...) {
 }
 
 
-plotPost <- function(x,hpd=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.a=1,
+plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.a=1,
                      col.area="cornflowerblue",float=FALSE,...) {
   #' plot posterior
   #' @export
 
   par.orig <- par(no.readonly=TRUE)
   maj.col <- col.area
-  hpd.col <- col.mult(maj.col)
+  ci.col <- col.mult(maj.col)
   xbar <- mean(x)
   den.x <- density(x)
-  hpd.x <- get.hpd(x,a=.05,len=1e3)
+  ci.x <- get.ci(x,a=.05,len=1e3)
   color.den(den.x,from=min(den.x$x),to=max(den.x$x),col.main="grey20",
             col.area=maj.col,col.den="white",fg="grey",bty="n",xaxt="n",...)
-  axis(1,at=c(hpd.x,xbar),labels=round(c(hpd.x,xbar),dig),las=0,fg="grey",
+  axis(1,at=c(ci.x,xbar),labels=round(c(ci.x,xbar),dig),las=0,fg="grey",
        cex.axis=cex.a)
-  color.den(den.x,from=hpd.x[1],to=hpd.x[2],
-            col.area=hpd.col,col.den=maj.col,add=TRUE)
+  color.den(den.x,from=ci.x[1],to=ci.x[2],
+            col.area=ci.col,col.den=maj.col,add=TRUE)
   lines(c(xbar,xbar),c(0,bound(xbar,den.x,ret=F)),lwd=2,col="red")
   if (trace) plotInPlot(function() 
                           plot(x,fg="grey",bty="n",col="grey",type='l',
                                col.axis="grey",axes=FALSE))
   if (stats) {
-    hpdString <- paste0("(",round(hpd.x[1],dig),", ",round(hpd.x[2],dig),")")
+    ciString <- paste0("(",round(ci.x[1],dig),", ",round(ci.x[2],dig),")")
     legend("topleft",bty="n",text.col="grey20",
-           legend=paste(c("Mean: ","SD: ","95% HPD: "),
-                        c(round(xbar,dig),round(sd(x),dig),hpdString)))
+           legend=paste(c("Mean: ","SD: ","95% CI: "),
+                        c(round(xbar,dig),round(sd(x),dig),ciString)))
   }
   if (!float) par(par.orig)
 }
@@ -91,6 +91,11 @@ get.hpd <- function(x,a=.05,len=1e3) {
   min.d <- V[which.min(diff)]
   hpd <- quantile(x,c(min.d,min.d+1-a))
   hpd
+}
+
+get.ci <- function(x,a=.05) {
+  stopifnot(0 <= a && a <= 1)
+  quantile(x,a/2,1-a/2)
 }
 
 bound <- function(x, dens, return.x=TRUE){
