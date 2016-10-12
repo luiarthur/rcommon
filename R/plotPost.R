@@ -95,7 +95,7 @@ get.hpd <- function(x,a=.05,len=1e3) {
 
 get.ci <- function(x,a=.05) {
   stopifnot(0 <= a && a <= 1)
-  quantile(x,a/2,1-a/2)
+  quantile(x,c(a/2,1-a/2))
 }
 
 bound <- function(x, dens, return.x=TRUE){
