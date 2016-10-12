@@ -42,7 +42,7 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.a=1,
   ci.col <- col.mult(maj.col)
   xbar <- mean(x)
   den.x <- density(x)
-  ci.x <- get.ci(x,a=.05,len=1e3)
+  ci.x <- get.ci(x,a=.05)
   color.den(den.x,from=min(den.x$x),to=max(den.x$x),col.main="grey20",
             col.area=maj.col,col.den="white",fg="grey",bty="n",xaxt="n",...)
   axis(1,at=c(ci.x,xbar),labels=round(c(ci.x,xbar),dig),las=0,fg="grey",
