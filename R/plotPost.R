@@ -11,8 +11,10 @@ plotPosts <- function(M,cnames=colnames(M),...) {
   #' plotPosts(M)
   #' @export
 
-  customDiag <- function(i,X) 
+  customDiag <- function(i,X) {
     plotPost(X[,i],main=cnames[i],float=T,stats=FALSE,yaxt="n",...)
+  }
+
 
   customUpper <- function(i,j,X) {
     plot(X[,c(j,i)],xlab=cnames[j],ylab=cnames[i],pch=20,
