@@ -3,7 +3,7 @@
 #source("colorUnderCurve.R")
 #source("mypairs.R")
 
-plotPosts <- function(M,cnames=colnames(M),stats=F,...) {
+plotPosts <- function(M,cnames=colnames(M),...) {
   #' plot posteriors
   #' @examples
   #' M <- matrix(rnorm(1000),ncol=4)
@@ -12,7 +12,7 @@ plotPosts <- function(M,cnames=colnames(M),stats=F,...) {
   #' @export
 
   customDiag <- function(i,X) 
-    plotPost(X[,i],main=cnames[i],float=T,stat=stats,yaxt="n",...)
+    plotPost(X[,i],main=cnames[i],float=T,stats=FALSE,yaxt="n",...)
 
   customUpper <- function(i,j,X) {
     plot(X[,c(j,i)],xlab=cnames[j],ylab=cnames[i],pch=20,
