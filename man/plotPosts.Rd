@@ -4,7 +4,7 @@
 \alias{plotPosts}
 \title{plot posteriors}
 \usage{
-plotPosts(M, cnames = colnames(M), ...)
+plotPosts(M, cnames = colnames(M), stats = F, ...)
 }
 \description{
 plot posteriors
