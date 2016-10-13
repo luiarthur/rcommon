@@ -22,12 +22,13 @@ colnames(X) <- 1:5
 my.pairs(X)
 
 source("R/plotPost.R",chdir=TRUE)
-Y <- matrix(rnorm(5*300),ncol=5)
+Y <- matrix(rnorm(5*3000),ncol=5)
 colnames(Y) <- 1:5
 plotPosts(Y,dig=2,cex.a=1)
-plotPosts(rnorm(1000))
-plotPosts(Y[,1:2],dig=2,cex.a=1)
-plotPosts(Y[,1:2],dig=2,cex.a=1,stats=TRUE)
+plotPosts(rnorm(1000),cex.a=1)
+plotPosts(rnorm(1000),cex.a=.5)
+plotPosts(Y[,1:2],dig=2,stats=FALSE)
+plotPosts(Y[,1:2],dig=2,stats=TRUE)
 
 ### GENERATE PACKAGE IF ALL TESTS PASS
 roxygen2::roxygenise()

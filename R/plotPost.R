@@ -12,7 +12,7 @@ plotPosts <- function(M,cnames=colnames(M),...) {
   #' @export
 
   customDiag <- function(i,X) {
-    plotPost(X[,i],main=cnames[i],float=T,stats=FALSE,yaxt="n",...)
+    plotPost(X[,i],main=cnames[i],float=T,yaxt="n",...)
   }
 
 
@@ -34,8 +34,8 @@ plotPosts <- function(M,cnames=colnames(M),...) {
 }
 
 
-plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.a=1,
-                     col.area="cornflowerblue",float=FALSE,...) {
+plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
+                     col.area="cornflowerblue",float=FALSE,cex.l=1,...) {
   #' plot posterior
   #' @export
 
@@ -48,19 +48,22 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.a=1,
   color.den(den.x,from=min(den.x$x),to=max(den.x$x),col.main="grey20",
             col.area=maj.col,col.den="white",fg="grey",bty="n",xaxt="n",...)
   axis(1,at=c(ci.x,xbar),labels=round(c(ci.x,xbar),dig),las=0,fg="grey",
-       cex.axis=cex.a)
+       cex.axis=cex.ap)
   color.den(den.x,from=ci.x[1],to=ci.x[2],
             col.area=ci.col,col.den=maj.col,add=TRUE)
   lines(c(xbar,xbar),c(0,bound(xbar,den.x,ret=F)),lwd=2,col="red")
-  if (trace) plotInPlot(function() 
-                          plot(x,fg="grey",bty="n",col="grey",type='l',
-                               col.axis="grey",axes=FALSE))
   if (stats) {
-    ciString <- paste0("(",round(ci.x[1],dig),", ",round(ci.x[2],dig),")")
-    legend("topleft",bty="n",text.col="grey20",
-           legend=paste(c("Mean: ","SD: ","95% CI: "),
+    ciString <- ""#paste0("(",round(ci.x[1],dig),", ",round(ci.x[2],dig),")")
+    legend("topleft",bty="n",text.col=c(rep("grey20",2),ci.col),cex=cex.l,
+           text.font=c(1,1,2),
+           legend=paste(c("Mean: ","SD: ","95% CI "),
                         c(round(xbar,dig),round(sd(x),dig),ciString)))
   }
+  if (trace) {
+    plotInPlot(function() 
+      plot(x,fg="grey",bty="n",col="grey",type='l', col.axis="grey",axes=FALSE))
+  }
+
   if (!float) par(par.orig)
 }
 

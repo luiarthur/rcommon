@@ -4,8 +4,9 @@
 \alias{plotPost}
 \title{plot posterior}
 \usage{
-plotPost(x, ci = TRUE, stats = TRUE, trace = TRUE, dig = 3, cex.a = 1,
-  col.area = "cornflowerblue", float = FALSE, ...)
+plotPost(x, ci = TRUE, stats = TRUE, trace = TRUE, dig = 3,
+  cex.ap = 1, col.area = "cornflowerblue", float = FALSE, cex.l = 1,
+  ...)
 }
 \description{
 plot posterior
