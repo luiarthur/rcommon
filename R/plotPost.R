@@ -36,7 +36,7 @@ plotPosts <- function(M,cnames=colnames(M),...) {
 
 plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
                      legend.pos="topleft",col.area="cornflowerblue",float=FALSE,
-                     cex.l=1,...) {
+                     cex.l=1,show.xaxis.mean=TRUE,...) {
   #' plot posterior
   #' @export
 
@@ -48,7 +48,8 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
   ci.x <- get.ci(x,a=.05)
   color.den(den.x,from=min(den.x$x),to=max(den.x$x),col.main="grey20",
             col.area=maj.col,col.den="white",fg="grey",bty="n",xaxt="n",...)
-  axis(1,at=c(ci.x,xbar),labels=round(c(ci.x,xbar),dig),las=0,fg="grey",
+  x.axis <- if (show.xaxis.mean) c(ci.x,xbar) else ci.x
+  axis(1,at=x.axis,labels=round(x.axis,dig),las=0,fg="grey",
        cex.axis=cex.ap)
   color.den(den.x,from=ci.x[1],to=ci.x[2],
             col.area=ci.col,col.den=maj.col,add=TRUE)
