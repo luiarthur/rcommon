@@ -35,7 +35,8 @@ plotPosts <- function(M,cnames=colnames(M),...) {
 
 
 plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
-                     col.area="cornflowerblue",float=FALSE,cex.l=1,...) {
+                     legend.pos="topright",col.area="cornflowerblue",float=FALSE,
+                     cex.l=1,...) {
   #' plot posterior
   #' @export
 
