@@ -56,7 +56,7 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
   lines(c(xbar,xbar),c(0,bound(xbar,den.x,ret=F)),lwd=2,col="red")
   if (stats) {
     ciString <- ""#paste0("(",round(ci.x[1],dig),", ",round(ci.x[2],dig),")")
-    legend(legend.pos,bty="n",text.col=c("red","grey20",ci.col),cex=cex.l,
+    legend(legend.pos,text.col=c("red","grey20",ci.col),cex=cex.l,
            text.font=c(2,1,2),
            bg=rgb(1,1,1,.3), box.lwd=0,# bg for legend box
            legend=paste(c("Mean: ","SD: ","95% CI "),
