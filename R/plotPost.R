@@ -35,7 +35,7 @@ plotPosts <- function(M,cnames=colnames(M),...) {
 
 
 plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
-                     legend.pos="topleft",col.area="cornflowerblue",float=FALSE,
+                     legend.pos="right",col.area="cornflowerblue",float=FALSE,
                      cex.l=1,show.xaxis.mean=TRUE,...) {
   #' plot posterior
   #' @export
@@ -57,11 +57,16 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
   if (stats) {
     ciString <- ""#paste0("(",round(ci.x[1],dig),", ",round(ci.x[2],dig),")")
     leg.bg <- rgb(1,1,1,.3)
-    legend(legend.pos,text.col=c("red","grey20",ci.col),cex=cex.l,
-           text.font=c(2,1,2),
-           bg=leg.bg, box.col=leg.bg,# bg for legend box
-           legend=paste(c("Mean: ","SD: ","95% CI "),
-                        c(round(xbar,dig),round(sd(x),dig),ciString)))
+    leg <- paste(c("Mean: ","SD: ","95% CI"),
+                 c(round(xbar,dig),round(sd(x),dig),ciString))
+    argmax_nchar <- which.max(nchar(leg))
+    tmp <- legend(legend.pos,cex=cex.l,bty="n",
+                  #bg=leg.bg, box.col=leg.bg,# bg for legend box
+                  text.width = strwidth(argmax_nchar),
+                  xjust=1,yjust=1,
+                  legend=c("","",""))
+    text(tmp$rect$left + tmp$rect$w, tmp$text$y, leg, pos = 2,cex=cex.l,
+         font=2, col=c("red","grey20",ci.col))
   }
   if (trace) {
     plotInPlot(function() 
