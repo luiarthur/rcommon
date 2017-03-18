@@ -58,7 +58,7 @@ color.btwn <- function(x,ylo,yhi,from,to,col.area="grey") {
           col=col.area,border=F)
 }
 
-color.btwn.mat <- function(x,y,from=min(x),to=max(x),col.area="grey") {
+color.btwn.mat <- function(x,y,from=min(x),to=max(x),col.area=rgb(0,0,0,.2)) {
   #' Color area between ylo and yhi
   #' @export
 
