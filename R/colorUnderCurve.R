@@ -58,6 +58,16 @@ color.btwn <- function(x,ylo,yhi,from,to,col.area="grey") {
           col=col.area,border=F)
 }
 
+color.btwn.mat <- function(x,y,from=min(x),to=max(x),col.area="grey") {
+  #' Color area between ylo and yhi
+  #' @export
+  x <- c(x,rev(x))
+  y <- c(yhi,rev(ylo))
+
+  polygon(c(x[x>=from & x<= to]),
+          c(y[x>=from & x<=to]),
+          col=col.area,border=F)
+}
 
 #Examples: ######################################################
 
