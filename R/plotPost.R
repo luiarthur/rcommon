@@ -125,8 +125,8 @@ bound <- function(x, dens, return.x=TRUE){
     dens$y[which.min(abs(dens$x-x))]
 }
 
-mar.ts <- c(0, 5.1, 0, 2.1)
-oma.ts <- c(6, 0, 5, 0)
-mar.default <- c(5.1, 4.1, 4.1, 2.1)
-oma.default <- rep(0,4)
+mar.ts <- function() c(0, 5.1, 0, 2.1)
+oma.ts <- function() c(6, 0, 5, 0)
+mar.default <- function() c(5.1, 4.1, 4.1, 2.1)
+oma.default <- function() rep(0,4)
 
