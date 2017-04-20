@@ -14,4 +14,3 @@ M <- matrix(rnorm(1000),ncol=4)
 colnames(M) <- 1:4
 plotPosts(M)
 }
-

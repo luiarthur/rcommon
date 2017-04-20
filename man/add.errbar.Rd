@@ -9,4 +9,3 @@ add.errbar(ci, transpose = FALSE, x = NULL, ...)
 \description{
 Add error bar
 }
-

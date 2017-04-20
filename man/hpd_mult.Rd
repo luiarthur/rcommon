@@ -42,4 +42,3 @@ hpd = hpd_mult(x)
 \seealso{
 get.hpd
 }
-

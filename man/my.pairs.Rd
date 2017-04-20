@@ -15,4 +15,3 @@ X <- matrix(rnorm(100),ncol=4)
 colnames(X) <- c("I","II","III","IV")
 my.pairs(X)
 }
-

@@ -9,4 +9,3 @@ bound(x, dens, return.x = TRUE)
 \description{
 returns the x-value in dens that is closest to the given x
 }
-

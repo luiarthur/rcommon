@@ -9,4 +9,3 @@ get.hpd(x, a = 0.05, len = 1000)
 \description{
 get the HPD
 }
-

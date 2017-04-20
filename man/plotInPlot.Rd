@@ -31,4 +31,3 @@ plotInPlot(minor,"bottomright")
 plotInPlot(minor,"bottomleft")
 plotInPlot(minor,"topleft")
 }
-

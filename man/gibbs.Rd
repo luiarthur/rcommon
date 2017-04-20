@@ -42,4 +42,3 @@ postSig2 <- sapply(out,function(o) o$sig2)
 plotPosts(cbind(postMu,postSig2))
 
 }
-

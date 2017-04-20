@@ -9,4 +9,3 @@ color.btwn(x, ylo, yhi, from, to, col.area = "grey")
 \description{
 Color area between ylo and yhi
 }
-

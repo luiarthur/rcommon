@@ -12,4 +12,3 @@ color.den(den, from, to, col.den = "white", col.area = "red", add = F,
 color area under a density within an interval
 den has to be a density object
 }
-

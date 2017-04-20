@@ -9,4 +9,3 @@ color.fn(f, from, to, col.area = "red")
 \description{
 color area under a function within an interval
 }
-

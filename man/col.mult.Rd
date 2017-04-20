@@ -9,4 +9,3 @@ col.mult(col1 = 0, col2 = "gray50")
 \description{
 col.mult
 }
-

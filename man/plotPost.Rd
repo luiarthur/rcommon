@@ -11,4 +11,3 @@ plotPost(x, ci = TRUE, stats = TRUE, trace = TRUE, dig = 3,
 \description{
 plot posterior
 }
-

@@ -9,4 +9,3 @@ my.color(dat, from, to, col.den = "black", col.area = "red", ...)
 \description{
 color under curve
 }
-

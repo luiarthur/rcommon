@@ -9,4 +9,3 @@ color.emp(M, from, to, col.area = "red")
 \description{
 color area under a curve for a sample
 }
-
