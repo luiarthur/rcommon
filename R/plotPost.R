@@ -77,7 +77,7 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
   if (trace) {
     plotInPlot(function() 
       plot(x,fg="grey",bty="n",col="grey",type='l', col.axis="grey",axes=FALSE,
-           main=ifelse(acc,paste0("acc: ",acc_rate*100,"%"),""),
+           main=ifelse(acc,paste0("acc: ",round(acc_rate*100,1),"%"),""),
            cex.main=.9, col.main='grey20'))
   }
 
