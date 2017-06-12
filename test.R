@@ -22,8 +22,8 @@ colnames(X) <- 1:5
 my.pairs(X)
 
 source("R/plotPost.R",chdir=TRUE)
-Y <- matrix(rnorm(5*3000),ncol=5)
-colnames(Y) <- 1:5
+Y <- matrix(rnorm(4*3000),ncol=4)
+colnames(Y) <- 1:4
 plotPosts(Y,dig=2,cex.a=1)
 plotPosts(rnorm(1000),cex.a=1)
 plotPosts(rnorm(1000),cex.a=.5)
