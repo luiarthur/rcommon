@@ -26,7 +26,7 @@ Y <- matrix(rnorm(4*3000),ncol=4)
 colnames(Y) <- 1:4
 plotPosts(Y,dig=2,cex.a=1)
 plotPosts(rnorm(1000),cex.a=1)
-plotPosts(rnorm(1000),cex.a=.5)
+plotPosts(rnorm(1000),cex.a=.5,trace=F)
 plotPosts(Y[,1:2],dig=2,stats=FALSE)
 plotPosts(Y[,1:2],dig=2,stats=TRUE)
 

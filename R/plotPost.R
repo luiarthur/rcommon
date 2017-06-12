@@ -36,7 +36,7 @@ plotPosts <- function(M,cnames=colnames(M),...) {
 
 plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
                      legend.pos="right",col.area="cornflowerblue",float=FALSE,
-                     cex.l=1,show.xaxis.mean=TRUE,...) {
+                     cex.l=1,show.xaxis.mean=TRUE,acc=TRUE,...) {
   #' plot posterior
   #' @export
 
@@ -54,9 +54,9 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
   color.den(den.x,from=ci.x[1],to=ci.x[2],
             col.area=ci.col,col.den=maj.col,add=TRUE)
   lines(c(xbar,xbar),c(0,bound(xbar,den.x,ret=F)),lwd=2,col="red")
+  acc_rate <- length(unique(x)) / length(x)
   if (stats) {
     ciString <- ""#paste0("(",round(ci.x[1],dig),", ",round(ci.x[2],dig),")")
-    acc <- length(unique(x)) / length(x)
     leg <- paste(c("Mean: ","SD: ","95% CI"),
                  c(round(xbar,dig),
                    round(sd(x),dig),
@@ -77,7 +77,7 @@ plotPost <- function(x,ci=TRUE,stats=TRUE,trace=TRUE,dig=3,cex.ap=1,
   if (trace) {
     plotInPlot(function() 
       plot(x,fg="grey",bty="n",col="grey",type='l', col.axis="grey",axes=FALSE,
-           main=paste0("acc: ",acc*100,"%"),
+           main=ifelse(acc,paste0("acc: ",acc_rate*100,"%"),""),
            cex.main=.9, col.main='grey20'))
   }
 
