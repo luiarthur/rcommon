@@ -3,6 +3,10 @@
 #source("colorUnderCurve.R")
 #source("mypairs.R")
 
+num_distinct <- function(x) {
+  length(unique(x))
+}
+
 plotPosts <- function(M,cnames=colnames(M),...) {
   #' plot posteriors
   #' @examples
@@ -17,10 +21,13 @@ plotPosts <- function(M,cnames=colnames(M),...) {
 
 
   customUpper <- function(i,j,X) {
+    valid = (num_distinct(X[,i]) > 1) && (num_distinct(X[,j]) > 1)
     plot(X[,c(j,i)],xlab=cnames[j],ylab=cnames[i],pch=20,
          xaxt='n',yaxt="n",
          bty="n",fg="grey",main="",col="grey",type='l',lwd=.5)
-    plot.contour(X[,c(j,i)],col=col.mult("cornflowerblue"),add=TRUE)
+    if(valid) {
+      plot.contour(X[,c(j,i)],col=col.mult("cornflowerblue"),add=TRUE)
+    }
   }
 
 
