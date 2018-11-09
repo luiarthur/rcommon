@@ -6,7 +6,8 @@
 \usage{
 plotPost(x, ci = TRUE, stats = TRUE, trace = TRUE, dig = 3,
   cex.ap = 1, legend.pos = "right", col.area = "cornflowerblue",
-  float = FALSE, cex.l = 1, show.xaxis.mean = TRUE, acc = TRUE, ...)
+  float = FALSE, cex.l = 1, show.xaxis.mean = TRUE, acc = TRUE,
+  ...)
 }
 \description{
 plot posterior

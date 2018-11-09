@@ -1,4 +1,6 @@
 my.qqplot = function(dat, post_pred, conf_level=.95, qseq=seq(0, 1, len=100), ...) {
+  #' @export
+
   alpha_level = 1 - conf_level
   qy= quantile(dat, qseq)
   qpp = apply(post_pred, 2, quantile, qseq)

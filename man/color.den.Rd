@@ -5,8 +5,8 @@
 \title{color area under a density within an interval
 den has to be a density object}
 \usage{
-color.den(den, from, to, col.den = "white", col.area = "red", add = F,
-  ...)
+color.den(den, from, to, col.den = "white", col.area = "red",
+  add = F, ...)
 }
 \description{
 color area under a density within an interval
